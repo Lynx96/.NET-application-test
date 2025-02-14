@@ -1,0 +1,31 @@
+# Build and runtime files
+bin/
+obj/
+out/
+publish/
+
+# Local configuration
+appsettings.Development.json
+appsettings.json
+
+# Specific user files
+*.user
+*.suo
+*.userprefs
+
+# .NET Dependencies
+.nuget/
+packages/
+
+# Logs and diagnosis
+logs/
+*.log
+*.nlog
+
+# .NET Tools
+.dotnet/
+tools/
+
+# Temporary files
+*.swp
+*.cache
