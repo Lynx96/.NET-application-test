@@ -1,12 +1,17 @@
 using Microsoft.EntityFrameworkCore;
 using ProductApi.models;
 
+
+
 namespace ProductApi.Data;
 
-public class AppDbContext : DbContext {
+    public class AppDbContext : DbContext {
+
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
-    public AppDbContext(){}
+    public AppDbContext(){
+        
+    }
 
     public DbSet<Client> Clients {get; set;}
     public DbSet<ProductItem> Products {get; set;}
@@ -20,7 +25,7 @@ public class AppDbContext : DbContext {
         // Order - Client relationship
         modelBuilder.Entity<Order>().ToTable("Pedido")
             .HasOne(o => o.Client)
-            .WithMany(c => c.Orders)
+            .WithMany()
             .HasForeignKey(o => o.ClientId);
 
         modelBuilder.Entity<OrderItem>().ToTable("Item_Pedido")
@@ -35,14 +40,5 @@ public class AppDbContext : DbContext {
     
     }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        if(!optionsBuilder.IsConfigured){
-            optionsBuilder.UseNpgsql("DefaultConnection", options =>
-                options.CommandTimeout(60)); //60 seconds for applying migrations
-        }
-        
-    }
+  
 }
-
-

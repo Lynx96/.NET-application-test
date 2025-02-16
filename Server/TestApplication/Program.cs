@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using ProductApi.Data;
+using TestApplication.Services;
+using TestApplication.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +14,12 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(connectionString));
 
+builder.Services.AddScoped<IClientService, ClientService>();
+
+builder.Services.AddControllers();
+
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -20,6 +28,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.MapControllers();
 
 //app.UseHttpsRedirection();
 
