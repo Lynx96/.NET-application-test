@@ -22,7 +22,7 @@ namespace TestApplication.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetById(int id)
+        public async Task<IActionResult> GetById(long id)
         {
             var client = await _clientService.GetClientByIdAsync(id);
             if (client == null) return NotFound();
@@ -30,14 +30,20 @@ namespace TestApplication.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(Client client)
+        public async Task<IActionResult> Create(ClientCreateDto clientDto)
         {
+             var client = new Client
+            {
+                Name = clientDto.Name,
+                Email = clientDto.Email,
+                PhoneNumber = clientDto.PhoneNumber
+            };            
             await _clientService.CreateClientAsync(client);
             return CreatedAtAction(nameof(GetById), new { id = client.Id }, client);
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(int id, Client client)
+        public async Task<IActionResult> Update(long id, Client client)
         {
             if (id != client.Id) return BadRequest();
             await _clientService.UpdateClientAsync(client);
@@ -45,7 +51,7 @@ namespace TestApplication.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> Delete(long id)
         {
             await _clientService.DeleteClientAsync(id);
             return NoContent();

@@ -23,7 +23,7 @@ namespace TestApplication.Services
         {
             return await _context.Clients.ToListAsync();
         }
-        public async Task<Client?> GetClientByIdAsync(int id)
+        public async Task<Client?> GetClientByIdAsync(long id)
         {
             var client = await _context.Clients.FindAsync(id);
             if (client == null){
@@ -44,7 +44,7 @@ namespace TestApplication.Services
             await _context.SaveChangesAsync();
         }
 
-        public async Task DeleteClientAsync(int id)
+        public async Task DeleteClientAsync(long id)
         {
             var client = await _context.Clients.FindAsync(id);
             if (client != null)

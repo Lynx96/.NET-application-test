@@ -5,10 +5,10 @@ using ProductApi.models;
 namespace TestApplication.Services.Interfaces {
     public interface IClientService { 
         Task<List<Client>> GetAllClientsAsync();
-        Task<Client?> GetClientByIdAsync(int id);
+        Task<Client?> GetClientByIdAsync(long id);
         Task CreateClientAsync(Client client );
         Task UpdateClientAsync(Client client );
-        Task DeleteClientAsync(int id);
+        Task DeleteClientAsync(long id);
 
     }
 
