@@ -3115,19 +3115,19 @@
     ]
   },
   "packageFolders": {
-    "/home/codespace/.nuget/packages/": {}
+    "C:\\Users\\suporte\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/workspaces/.NET-application-test/Server/TestApplication/TestApplication.csproj",
+      "projectUniqueName": "C:\\Users\\suporte\\Documents\\dotnetApp\\backend\\Server\\TestApplication\\TestApplication.csproj",
       "projectName": "TestApplication",
-      "projectPath": "/workspaces/.NET-application-test/Server/TestApplication/TestApplication.csproj",
-      "packagesPath": "/home/codespace/.nuget/packages/",
-      "outputPath": "/workspaces/.NET-application-test/Server/TestApplication/obj/",
+      "projectPath": "C:\\Users\\suporte\\Documents\\dotnetApp\\backend\\Server\\TestApplication\\TestApplication.csproj",
+      "packagesPath": "C:\\Users\\suporte\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\suporte\\Documents\\dotnetApp\\backend\\Server\\TestApplication\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/codespace/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\suporte\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -3200,7 +3200,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.404/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.406/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
