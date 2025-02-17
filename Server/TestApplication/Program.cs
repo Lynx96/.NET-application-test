@@ -16,9 +16,17 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 builder.Services.AddScoped<IClientService, ClientService>();
 
+// Configurar CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontendApp",
+        builder => builder
+            .WithOrigins("http://localhost:5173") // Adicione a URL do frontend
+            .AllowAnyHeader()
+            .AllowAnyMethod());
+});
+
 builder.Services.AddControllers();
-
-
 
 var app = builder.Build();
 
@@ -28,6 +36,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+// Usar a política de CORS configurada
+app.UseCors("AllowFrontendApp");
 
 app.MapControllers();
 
